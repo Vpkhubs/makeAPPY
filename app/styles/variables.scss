@@ -104,20 +104,30 @@
   --bolt-terminal-brightWhite: #a5a5a5;
 }
 
-/* Color Tokens Dark Theme */
+/* Color Tokens Dark Theme - Vaporwave Haunted */
 :root,
 :root[data-theme='dark'] {
-  --bolt-elements-borderColor: theme('colors.alpha.white.10');
-  --bolt-elements-borderColorActive: theme('colors.accent.500');
+  /* Vaporwave Neon Colors */
+  --vaporwave-neon-pink: #ff00ff;
+  --vaporwave-neon-cyan: #00ffff;
+  --vaporwave-neon-purple: #8a2be2;
+  --vaporwave-neon-green: #39ff14;
+  --vaporwave-dark-purple: #1a0033;
+  --vaporwave-dark-blue: #000033;
+  --vaporwave-dark-black: #0a0a0a;
+  --vaporwave-grid-color: #ff00ff33;
 
-  --bolt-elements-bg-depth-1: theme('colors.gray.950');
-  --bolt-elements-bg-depth-2: theme('colors.gray.900');
-  --bolt-elements-bg-depth-3: theme('colors.gray.800');
-  --bolt-elements-bg-depth-4: theme('colors.alpha.white.5');
+  --bolt-elements-borderColor: var(--vaporwave-neon-cyan);
+  --bolt-elements-borderColorActive: var(--vaporwave-neon-pink);
 
-  --bolt-elements-textPrimary: theme('colors.white');
-  --bolt-elements-textSecondary: theme('colors.gray.400');
-  --bolt-elements-textTertiary: theme('colors.gray.500');
+  --bolt-elements-bg-depth-1: linear-gradient(135deg, var(--vaporwave-dark-black) 0%, var(--vaporwave-dark-purple) 50%, var(--vaporwave-dark-blue) 100%);
+  --bolt-elements-bg-depth-2: var(--vaporwave-dark-purple);
+  --bolt-elements-bg-depth-3: var(--vaporwave-dark-blue);
+  --bolt-elements-bg-depth-4: rgba(255, 0, 255, 0.1);
+
+  --bolt-elements-textPrimary: var(--vaporwave-neon-cyan);
+  --bolt-elements-textSecondary: var(--vaporwave-neon-pink);
+  --bolt-elements-textTertiary: var(--vaporwave-neon-purple);
 
   --bolt-elements-code-background: theme('colors.gray.800');
   --bolt-elements-code-text: theme('colors.white');

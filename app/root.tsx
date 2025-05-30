@@ -16,8 +16,8 @@ import 'virtual:uno.css';
 export const links: LinksFunction = () => [
   {
     rel: 'icon',
-    href: '/favicon.svg',
-    type: 'image/svg+xml',
+    href: '/APPYness-logo.png',
+    type: 'image/png',
   },
   { rel: 'stylesheet', href: reactToastifyStyles },
   { rel: 'stylesheet', href: tailwindReset },
@@ -34,7 +34,7 @@ export const links: LinksFunction = () => [
   },
   {
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+    href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;700;900&display=swap',
   },
 ];
 

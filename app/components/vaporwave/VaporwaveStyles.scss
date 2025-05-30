@@ -1,0 +1,293 @@
+// Vaporwave Animations and Effects
+
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor,
+      0 0 20px #ff00ff,
+      0 0 35px #ff00ff,
+      0 0 40px #ff00ff;
+    filter:
+      drop-shadow(0 0 10px #ff00ff)
+      drop-shadow(0 0 20px #ff00ff)
+      drop-shadow(0 0 30px #ff00ff);
+  }
+  50% {
+    text-shadow:
+      0 0 2px currentColor,
+      0 0 5px currentColor,
+      0 0 8px currentColor,
+      0 0 12px #00ffff,
+      0 0 18px #00ffff,
+      0 0 25px #00ffff;
+    filter:
+      drop-shadow(0 0 15px #00ffff)
+      drop-shadow(0 0 25px #00ffff)
+      drop-shadow(0 0 35px #00ffff);
+  }
+}
+
+@keyframes logoMegaGlow {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 20px #ff00ff)
+      drop-shadow(0 0 40px #ff00ff)
+      drop-shadow(0 0 60px #ff00ff)
+      drop-shadow(0 0 80px #ff00ff);
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    filter:
+      drop-shadow(0 0 30px #00ffff)
+      drop-shadow(0 0 50px #00ffff)
+      drop-shadow(0 0 70px #00ffff)
+      drop-shadow(0 0 90px #00ffff);
+    transform: scale(1.05) rotate(1deg);
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 25px #8a2be2)
+      drop-shadow(0 0 45px #8a2be2)
+      drop-shadow(0 0 65px #8a2be2)
+      drop-shadow(0 0 85px #8a2be2);
+    transform: scale(1.1) rotate(0deg);
+  }
+  75% {
+    filter:
+      drop-shadow(0 0 35px #39ff14)
+      drop-shadow(0 0 55px #39ff14)
+      drop-shadow(0 0 75px #39ff14)
+      drop-shadow(0 0 95px #39ff14);
+    transform: scale(1.05) rotate(-1deg);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100px;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 5px #ff00ff,
+      0 0 10px #ff00ff,
+      0 0 15px #ff00ff,
+      inset 0 0 5px rgba(255, 0, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 10px #00ffff,
+      0 0 20px #00ffff,
+      0 0 30px #00ffff,
+      inset 0 0 10px rgba(0, 255, 255, 0.2);
+  }
+}
+
+@keyframes matrixRain {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+// Vaporwave Classes
+.vaporwave-text {
+  animation: neonGlow 2s ease-in-out infinite alternate;
+  font-family: 'Orbitron', 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.vaporwave-glitch {
+  position: relative;
+
+  &:hover {
+    animation: glitch 0.3s ease-in-out infinite;
+  }
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+
+  &::before {
+    animation: glitch 0.3s ease-in-out infinite reverse;
+    color: #ff00ff;
+    z-index: -1;
+  }
+
+  &::after {
+    animation: glitch 0.3s ease-in-out infinite;
+    color: #00ffff;
+    z-index: -2;
+  }
+}
+
+.vaporwave-border {
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #ff00ff, #00ffff, #8a2be2) border-box;
+  border-radius: 8px;
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+.vaporwave-button {
+  background: linear-gradient(45deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2));
+  border: 1px solid #ff00ff;
+  color: #00ffff;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(45deg, rgba(255, 0, 255, 0.4), rgba(0, 255, 255, 0.4));
+    box-shadow:
+      0 0 20px #ff00ff,
+      inset 0 0 20px rgba(255, 0, 255, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+.vaporwave-input {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #ff00ff;
+  color: #00ffff;
+
+  &:focus {
+    outline: none;
+    border-color: #00ffff;
+    box-shadow:
+      0 0 10px #00ffff,
+      inset 0 0 10px rgba(0, 255, 255, 0.1);
+  }
+
+  &::placeholder {
+    color: #8a2be2;
+  }
+}
+
+.scanlines {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 0, 255, 0.1) 2px,
+      rgba(255, 0, 255, 0.1) 4px
+    );
+    animation: scanlines 2s linear infinite;
+    pointer-events: none;
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulsing {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+// Matrix rain effect
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+
+  .matrix-char {
+    position: absolute;
+    color: #39ff14;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    animation: matrixRain 3s linear infinite;
+    text-shadow: 0 0 5px #39ff14;
+  }
+}
+
+// Holographic effect
+.holographic {
+  background: linear-gradient(
+    45deg,
+    #ff00ff 0%,
+    #00ffff 25%,
+    #8a2be2 50%,
+    #ff00ff 75%,
+    #00ffff 100%
+  );
+  background-size: 400% 400%;
+  animation: holographicShift 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes holographicShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

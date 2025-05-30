@@ -64,20 +64,36 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
         ref={ref}
         className={classNames(
           styles.BaseChat,
-          'relative flex h-full w-full overflow-hidden bg-bolt-elements-background-depth-1',
+          'relative flex h-full w-full overflow-hidden vaporwave-border scanlines',
         )}
+        style={{
+          background: 'linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(26, 0, 51, 0.9) 50%, rgba(0, 0, 51, 0.9) 100%)',
+          backdropFilter: 'blur(10px)'
+        }}
         data-chat-visible={showChat}
       >
         <ClientOnly>{() => <Menu />}</ClientOnly>
         <div ref={scrollRef} className="flex overflow-y-auto w-full h-full">
           <div className={classNames(styles.Chat, 'flex flex-col flex-grow min-w-[var(--chat-min-width)] h-full')}>
             {!chatStarted && (
-              <div id="intro" className="mt-[26vh] max-w-chat mx-auto">
-                <h1 className="text-5xl text-center font-bold text-bolt-elements-textPrimary mb-2">
-                  Where ideas begin
+              <div id="intro" className="mt-[15vh] max-w-4xl mx-auto scanlines text-center">
+                {/* GIGANTIC LOGO */}
+                <div className="mb-8 floating">
+                  <img
+                    src="/APPYness-logo.png"
+                    alt="APPYness"
+                    className="mx-auto w-80 h-80 object-contain"
+                    style={{
+                      animation: 'logoMegaGlow 4s ease-in-out infinite, float 6s ease-in-out infinite'
+                    }}
+                  />
+                </div>
+
+                <h1 className="text-6xl text-center font-bold text-bolt-elements-textPrimary mb-4 vaporwave-text holographic vaporwave-glitch floating" data-text="Developing Joy">
+                  Developing Joy
                 </h1>
-                <p className="mb-4 text-center text-bolt-elements-textSecondary">
-                  Bring ideas to life in seconds or get help on existing projects.
+                <p className="mb-6 text-center text-bolt-elements-textSecondary pulsing text-xl" style={{color: '#8a2be2'}}>
+                  Transform your ideas into amazing applications with APPYness AI. Let's build something joyful together!
                 </p>
               </div>
             )}
@@ -105,12 +121,17 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
               >
                 <div
                   className={classNames(
-                    'shadow-sm border border-bolt-elements-borderColor bg-bolt-elements-prompt-background backdrop-filter backdrop-blur-[8px] rounded-lg overflow-hidden',
+                    'shadow-sm border border-bolt-elements-borderColor bg-bolt-elements-prompt-background backdrop-filter backdrop-blur-[8px] rounded-lg overflow-hidden vaporwave-border',
                   )}
+                  style={{
+                    background: 'rgba(0, 0, 0, 0.8)',
+                    borderColor: '#ff00ff',
+                    boxShadow: '0 0 20px rgba(255, 0, 255, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.1)'
+                  }}
                 >
                   <textarea
                     ref={textareaRef}
-                    className={`w-full pl-4 pt-4 pr-16 focus:outline-none resize-none text-md text-bolt-elements-textPrimary placeholder-bolt-elements-textTertiary bg-transparent`}
+                    className={`w-full pl-4 pt-4 pr-16 focus:outline-none resize-none text-md text-bolt-elements-textPrimary placeholder-bolt-elements-textTertiary bg-transparent vaporwave-input`}
                     onKeyDown={(event) => {
                       if (event.key === 'Enter') {
                         if (event.shiftKey) {
@@ -130,7 +151,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                       minHeight: TEXTAREA_MIN_HEIGHT,
                       maxHeight: TEXTAREA_MAX_HEIGHT,
                     }}
-                    placeholder="How can Bolt help you today?"
+                    placeholder="What will you create today?"
                     translate="no"
                   />
                   <ClientOnly>
@@ -194,7 +215,12 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                         onClick={(event) => {
                           sendMessage?.(event, examplePrompt.text);
                         }}
-                        className="group flex items-center w-full gap-2 justify-center bg-transparent text-bolt-elements-textTertiary hover:text-bolt-elements-textPrimary transition-theme"
+                        className="group flex items-center w-full gap-2 justify-center vaporwave-button text-bolt-elements-textTertiary hover:text-bolt-elements-textPrimary transition-theme p-3 rounded-lg"
+                        style={{
+                          background: 'rgba(255, 0, 255, 0.1)',
+                          border: '1px solid rgba(255, 0, 255, 0.3)',
+                          color: '#00ffff'
+                        }}
                       >
                         {examplePrompt.text}
                         <div className="i-ph:arrow-bend-down-left" />
